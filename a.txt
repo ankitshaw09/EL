@@ -1,0 +1,11 @@
+Also add the 
+Course details 
+Course content downloads(video or pdf)
+
+Also create the authentication jwt tokens headers in the apis url,
+ maintain the user access for the apis access request
+
+
+ One more thing we also add the access token and refresh token for handling the apis authentication, in that way non authorised user cannot access our data
+
+ There is a task for you, you have to do research on authentication using headers, refresh or access token, how to implement the web sockets for effective communication between the server and Android application..
