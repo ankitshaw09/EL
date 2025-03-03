@@ -20,14 +20,14 @@ To install this project, follow these steps:
 
 4. Create a virtual environment using the command:
 
-   ```bash
+   ```JSON
    virtualenv env
    env\scripts\activate
    ```
 
 5. Install the project dependencies
 
-```bash
+```JSON
 pip install django djangorestframework djangorestframework-simplejwt
 ```
 
@@ -39,37 +39,37 @@ To use this project API :
 
 1. Authentication - Register
 
-   ```bash
+   ```JSON
    http://127.0.0.1:8000/api/auth/register/
    ```
 
    - Json:
-     ```bash
+     ```JSON
       "name": "User 1",
       "email": "user1@example.com",
       "password": "U1@123456"
      ```
 
-   ```bash
+   ```JSON
    password contains 8 characters
    ```
 
 2. Authentication :- Login
 
-   ```bash
+   ```JSON
    http://127.0.0.1:8000/api/auth/login/
    ```
 
    - Json:
 
-     ```bash
+     ```JSON
       "email": "user1@example.com",
       "password": "U1@123456"
      ```
 
    - response
 
-     ```bash
+     ```JSON
            {
               "user": {
                        "id": 2,
@@ -87,27 +87,112 @@ To use this project API :
 
 3. Profile : use access token for details
    GET:
-   ```bash
+   ```JSON
     http://127.0.0.1:8000/api/user/profile/10/
    ```
    10 is your profile user id
 
-PUT : edit profile by using form-data not json 
+PUT : edit profile by using form-data not json
 
-   ```bash
-      http://127.0.0.1:8000/api/user/profile/10/
-   ```
-
+```JSON
+   http://127.0.0.1:8000/api/user/profile/10/
+```
 
 4. Courses :
- category : use access token for details
+   category : use access token for details
    GET:
-   ```bash
+   ```JSON
     http://127.0.0.1:8000/api/courses/categories
    ```
-   
-GET :  fetch all the courses  (show only 10)
 
-   ```bash
-      http://127.0.0.1:8000/api/courses?limit=10
+GET : fetch all the courses (show only 10)
+
+```JSON
+   http://127.0.0.1:8000/api/courses?limit=10
+```
+
+5. Courses Enroll :
+   category : use access token for details
+   Post:
+
+   ```JSON
+    http://127.0.0.1:8000/api/courses/enroll/
    ```
+
+   Json:
+
+   ```json
+   {
+     "course_id": 4,
+     "confirm": true
+   }
+   ```
+
+6. Courses Enroll :
+   category : use access token for details
+   Post:
+
+   ```JSON
+    http://127.0.0.1:8000/api/courses/enroll/
+   ```
+
+   Json:
+
+   ```json
+   {
+     "course_id": 4,
+     "confirm": true
+   }
+   ```
+
+7. Tips : courses me hai 
+   category : use access token not required
+   GET:
+
+   ```JSON
+    http://127.0.0.1:8000//api/tips/
+   ```
+
+<!-- 8. Help / FAQs :
+   category : use access token Not required
+   GET:
+
+   ```JSON
+    http://127.0.0.1:8000/api/help/FAQ/
+   ```
+
+9. Help / ASK Question :
+   category : use access token required
+   Post:
+
+   ```json
+    http://127.0.0.1:8000/api/help/ask/
+   ```
+
+   JSON:
+
+   ```json
+   {
+   "question": "How can i Joined Courses"
+   }
+   ```
+
+   10. Help / user- Question :
+   category : use access token required
+   user can see the answer of the asked question 
+
+   GET:
+
+   ```json
+    http://127.0.0.1:8000//api/help/user-questions/
+   ```
+
+   JSON:
+
+   ```json
+   {
+   "question": "How can i Joined Courses"
+   }
+   ```
+   
+ -->

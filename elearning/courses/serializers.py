@@ -27,3 +27,26 @@ class CourseSerializer(serializers.ModelSerializer):
             "level", "duration_weeks", "total_lectures", "price", 
             "discount_percentage", "discounted_price", "lectures", "notes"
         ]
+
+class UserCourseProgressSerializer(serializers.ModelSerializer):
+    course = CourseSerializer()
+
+    class Meta:
+        model = UserCourseProgress
+        fields = ['course', 'status', 'progress_percentage']
+
+class EnrollCourseSerializer(serializers.Serializer):
+    course_id = serializers.IntegerField()
+    confirm = serializers.BooleanField()
+
+    def validate(self, data):
+        """Check if confirmation is provided"""
+        if not data.get("confirm"):
+            raise serializers.ValidationError("Please confirm enrollment.")
+        return data
+
+
+class LearningTipSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LearningTip
+        fields = ['id', 'title', 'description']

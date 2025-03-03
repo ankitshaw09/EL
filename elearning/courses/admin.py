@@ -27,3 +27,12 @@ class LectureAdmin(admin.ModelAdmin):
 @admin.register(Note)
 class NoteAdmin(admin.ModelAdmin):
     list_display = ("title", "course", "uploaded_at")
+
+
+from django.contrib import admin
+from .models import LearningTip
+
+@admin.register(LearningTip)
+class LearningTipAdmin(admin.ModelAdmin):
+    list_display = ("id", "title")  # Show ID and title in the admin list view
+    search_fields = ("title", "description")  # Enable search by title & description
