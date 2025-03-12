@@ -8,7 +8,7 @@ urlpatterns = [
     path('api/', include('authentication.urls')),
     path('api/', include('courses.urls')),
     
-    # path("api/help/", include("Support.urls")),
+    path("api/help/", include("support.urls")),
 ]
 
 if settings.DEBUG:
