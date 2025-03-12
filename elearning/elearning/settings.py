@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     'Live_classes',
     'support',
     
+    'chatbot',
+    'channels',
+    
     ]
 
 AUTH_USER_MODEL = 'authentication.CustomUser'
